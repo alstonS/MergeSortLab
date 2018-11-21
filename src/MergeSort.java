@@ -25,8 +25,39 @@ public class MergeSort {
     }
     private static void merge(int[] elements,int from,int middle, int to, int[] temp)
     {
-        
+        int i = from;
+        int j = middle;
+        int k = from;
 
+        while( i<=j && j<=k)
+        {
+            if(elements[i] > elements[j])
+            {
+                temp[k] = elements[i];
+                i++;
+            }
+            else
+            {
+                temp[j]= elements[j];
+                j++;
+            }
+            k++;
+        }
+        while(i<=j)
+        {
+            temp[k] = elements[i];
+            i++;
+            k++;
+        }
+        while(j <= to)
+        {
+            temp[k] = elements[j];
+            j++; k++;
+        }
+        for(int a=0; a<temp.length; a++)
+        {
+            elements[a] = temp[a];
+        }
 
     }
 
